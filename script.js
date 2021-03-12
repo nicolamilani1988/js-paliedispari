@@ -2,53 +2,54 @@ function isPalindrome(word){
 
   var wordLng = word.length;
 
-  var resTrue = "la parola non è palindroma";
-  var resFalse = "la parola è palindroma";
+  var resFalse = "la parola non è palindroma";
+  var resTrue = "la parola è palindroma";
 
   for(var i= 0; i<wordLng;i++){
     if(word[i] !== word[wordLng-(i+1)]){
       // console.log("nonpal");
-      return resTrue;
-    } else {
-      // console.log("palprov");
       return resFalse;
     }
   }
 
+  return resTrue;
+
 }
 // isPalindrome, IO TI INVOCO !!!!
-// var wordRnd = prompt("dimmi parola");
+// var wordRnd = "ANNA";
 // isPalindrome(wordRnd);
 // console.log(isPalindrome(wordRnd));
 
 
-var oddPairUser = prompt("pari o dispari");
-var user = parseInt(prompt("numero da 1 a 5"));
-
-
 function sum (value1,value2){
-  var sum = value1+value2;
-  return sum;
+  return value1+value2;
 }
 
-function getRnd (){
-  var numRnd = Math.floor(Math.random()*5)+1;
+function getRnd (min,max){
+  var minRnd = min;
+  var maxRnd = max - minRnd + 1;
+  var numRnd = Math.floor(Math.random()*maxRnd)+minRnd;
   return numRnd;
 }
 
+function winnerIs (numero){
+  if (numero % 2 == 0){
+    return "pari";
+  } else {
+    return "dispari";
+  }
+}
 
-
-var rnd = getRnd();
+var oddPairUser = prompt("pari o dispari").toLowerCase();
+var user = parseInt(prompt("numero da 1 a 5"));
+var rnd = getRnd(1,5);
 var sum = sum(user,rnd);
-console.log(oddPairUser, user, rnd, sum);
-var whoWin = "dispari";
-if(sum % 2 == 0){
-  whoWin = "pari";
-}
+console.log("Scelta utente:",oddPairUser,"Num utente:",user,"Num Cpu:" ,rnd,"Somma Tot:", sum);
 
-var winner = "cpu VINCE";
-if(whoWin == oddPairUser){
-  winner = "user VINCE";
-}
+var winner = winnerIs(sum);
 
-console.log(winner);
+if(winner == oddPairUser) {
+  console.log( "VINCE UTENTE !!!!");
+} else {
+  console.log( "VINCE CPU !!!!");
+}
