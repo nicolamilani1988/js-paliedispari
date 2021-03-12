@@ -1,0 +1,35 @@
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+}
+
+.container-flex{
+  width: 70%;
+  margin: auto;
+  padding: 100px;
+}
+
+.container-flex>div:first-child>ul{
+  display: flex;
+  justify-content: space-around;
+}
+
+.container-flex ul li{
+  list-style: none;
+}
+
+.container-flex>div:nth-child(2)>ul{
+  width: 30%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+}
+
+.container-flex>div:nth-child(3),
+.container-flex>div:last-child{
+  display: flex;
+  justify-content: center;
+  margin: 50px 0;
+}
