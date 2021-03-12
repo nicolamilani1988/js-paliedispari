@@ -16,6 +16,39 @@ function isPalindrome(word){
   }
 
 }
-var wordRnd = prompt("dimmi parola");
-isPalindrome(wordRnd);
-console.log(isPalindrome(wordRnd));
+// isPalindrome, IO TI INVOCO !!!!
+// var wordRnd = prompt("dimmi parola");
+// isPalindrome(wordRnd);
+// console.log(isPalindrome(wordRnd));
+
+
+var oddPairUser = prompt("pari o dispari");
+var user = parseInt(prompt("numero da 1 a 5"));
+
+
+function sum (value1,value2){
+  var sum = value1+value2;
+  return sum;
+}
+
+function getRnd (){
+  var numRnd = Math.floor(Math.random()*5)+1;
+  return numRnd;
+}
+
+
+
+var rnd = getRnd();
+var sum = sum(user,rnd);
+console.log(oddPairUser, user, rnd, sum);
+var whoWin = "dispari";
+if(sum % 2 == 0){
+  whoWin = "pari";
+}
+
+var winner = "cpu VINCE";
+if(whoWin == oddPairUser){
+  winner = "user VINCE";
+}
+
+console.log(winner);
