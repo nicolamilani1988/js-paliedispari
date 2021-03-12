@@ -1,9 +1,7 @@
-var word = prompt("dimmi parola");
-
 function isPalindrome(word){
 
   var wordLng = word.length;
-  
+
   var resTrue = "la parola non è palindroma";
   var resFalse = "la parola è palindroma";
 
@@ -18,6 +16,6 @@ function isPalindrome(word){
   }
 
 }
-
-isPalindrome(word);
-console.log(isPalindrome(word));
+var wordRnd = prompt("dimmi parola");
+isPalindrome(wordRnd);
+console.log(isPalindrome(wordRnd));
