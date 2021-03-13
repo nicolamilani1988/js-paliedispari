@@ -5,62 +5,99 @@
     <title>KICKOFF WITH CAPTAINS</title>
     <link rel="stylesheet" href="./css/style.css">
   </head>
+
   <body>
 
-    <div class="container-flex">
-      <div>
-        <ul>
-          <li>
-            <img src="./img/buffon-1.jpg" alt="" width="100px">
-            <input class="scelta-utente" type="radio" name="choice" data-choice="1">
-          </li>
-          <li>
-            <img src="./img/cafu-2.jpg" alt="" width="100px">
-            <input class="scelta-utente" type="radio" name="choice" data-choice="2">
-          </li>
-          <li>
-            <img src="./img/maldini-3.jpg" alt="" width="100px">
-            <input class="scelta-utente" type="radio" name="choice" data-choice="3">
-          </li>
-          <li>
-            <img src="./img/zanetti-4.jpg" alt="" width="100px">
-            <input class="scelta-utente" type="radio" name="choice" data-choice="4">
-          </li>
-          <li>
-            <img src="./img/zidane-5.jpg" alt="" width="100px">
-            <input class="scelta-utente" type="radio" name="choice" data-choice="5">
-          </li>
-        </ul>
+    <div class="container">
+      <!-- esercizio 1 -->
+      <div class="exercise-1">
+
+          <h1>Scegli il tuo capitano e gioca a pari e dispari</h1>
+          <!-- scegli capitano -->
+          <div>
+            <ul>
+              <li>
+                <img src="./img/buffon-1.jpg" alt="" width="100px" height="100px">
+                <input class="scelta-utente" type="radio" name="choice" data-choice="1">
+              </li>
+              <li>
+                <img src="./img/cafu-2.jpg" alt="" width="100px" height="100px">
+                <input class="scelta-utente" type="radio" name="choice" data-choice="2">
+              </li>
+              <li>
+                <img src="./img/maldini-3.jpg" alt="" width="100px" height="100px">
+                <input class="scelta-utente" type="radio" name="choice" data-choice="3">
+              </li>
+              <li>
+                <img src="./img/zanetti-4.jpg" alt="" width="100px" height="100px">
+                <input class="scelta-utente" type="radio" name="choice" data-choice="4">
+              </li>
+              <li>
+                <img src="./img/zidane-5.jpg" alt="" width="100px" height="100px">
+                <input class="scelta-utente" type="radio" name="choice" data-choice="5">
+              </li>
+            </ul>
+          </div>
+          <!-- scegli pari o dispari -->
+          <div class="">
+            <ul>
+              <li>
+                <span><strong>PARI</strong></span>
+                <input class="pari-dispari" type="radio" name="pair-odd" data-value="pari">
+              </li>
+              <li>
+                <span><strong>DISPARI</strong></span>
+                <input class="pari-dispari" type="radio" name="pair-odd" data-value="dispari">
+              </li>
+            </ul>
+          </div>
+          <!-- bottone gioca -->
+          <div class="">
+            <button id="play" type="button" name="button">GIOCA</button>
+          </div>
+
+          <div class="hr"></div>
+          <!-- sezine risultati -->
+          <div class="results">
+            <!-- utente -->
+            <div id="user-choice">
+              <strong>CAPITANO</strong>
+            </div>
+            <h2 id="final-result">
+              AND THE WINNER IS.....
+            </h2>
+            <!-- cpu -->
+            <div id="cpu-choice">
+              <strong>MACCHINA</strong>
+            </div>
+
+          </div>
+
       </div>
 
-      <div class="">
-        <ul>
-          <li>
-            <span>PARI</span>
-            <input class="pari-dispari" type="radio" name="pair-odd" data-value="pari">
-          </li>
-          <li>
-            <span>DISPARI</span>
-            <input class="pari-dispari" type="radio" name="pair-odd" data-value="dispari">
-          </li>
-        </ul>
-      </div>
+      <!-- esercizio 2 -->
+      <div class="exercise-2">
 
-      <div class="">
+        <h1>GIOCO DEI PALINDROMI</h1>
 
-        <button id="play" type="button" name="button">GIOCA</button>
+        <div class="">
+          <input id="palindromo" type="text" name="" value="" placeholder="inserisci qui la parola">
+        </div>
 
-      </div>
+        <div class="">
+          <button id="analyze-word" type="button" name="button">VERIFICA</button>
+        </div>
 
-      <hr>
-
-      <div class="">
-
-        <span id="final-result">RISULTATO</span>
+        <div>
+          <span id="palindromo-result">Attendo la parola</span>
+        </div>
 
       </div>
+
 
     </div>
+
+
 
 
     <script type="text/javascript" src="script.js"></script>

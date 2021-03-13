@@ -1,35 +1,134 @@
+/* regole generali */
 *{
   box-sizing: border-box;
   margin:0;
   padding: 0;
+  font-family: "Verdana";
 }
 
-.container-flex{
-  width: 70%;
-  margin: auto;
-  padding: 100px;
-}
-
-.container-flex>div:first-child>ul{
+.container{
   display: flex;
-  justify-content: space-around;
 }
 
-.container-flex ul li{
+
+/* ESERCIZIO 1 */
+/* regole generali */
+.exercise-1{
+  width: 60%;
+  margin: auto;
+  padding: 40px 100px;
+  border: 1px solid blue;
+  position: relative;
+}
+
+.exercise-1::before{
+  content: "";
+  background-image: url('../img/sfondo-1.jpg');
+  opacity: 0.3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.exercise-1 h1{
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.exercise-1 ul li{
   list-style: none;
 }
 
-.container-flex>div:nth-child(2)>ul{
-  width: 30%;
-  margin: auto;
+/* scelta capitani */
+.exercise-1>div:nth-child(2)>ul{
   display: flex;
   justify-content: space-between;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
-.container-flex>div:nth-child(3),
-.container-flex>div:last-child{
+.exercise-1>div:nth-child(2)>ul>li>img{
+  border-radius: 50%;
+  border: 2px solid blue;
+}
+
+/* scelta pari dispari */
+.exercise-1>div:nth-child(3)>ul{
+  display: flex;
+  justify-content: space-around;
+  margin: 50px 0;
+}
+
+.exercise-1>div:nth-child(3)>ul>li>span{
+  background-color: lightgreen;
+  color: darkgreen;
+  padding: 10px;
+  border: 2px solid black;
+}
+
+/* bottone gioca */
+.exercise-1>div:nth-child(4){
   display: flex;
   justify-content: center;
+}
+
+.exercise-1>div:nth-child(4) button{
+  background-color: black;
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px;
+}
+
+.hr{
+  border-top: 2px solid gray;
+  width: 100%;
   margin: 50px 0;
+}
+
+/* risultato finale */
+.results{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#user-choice, #cpu-choice{
+  border: 2px solid black;
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff90;
+}
+
+#final-result{
+  color: blue;
+  text-align: center;
+  font-weight: bolder;
+}
+
+/* esercizio 2 */
+/* regole generali */
+.exercise-2{
+  padding: 40px 100px;
+  width: 40%;
+  border: 1px solid blue;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.exercise-2>*{
+  padding: 20px;
+}
+
+.exercise-2 input{
+  background-color: orange;
+  color: red;
+  border: 1px solid red;
+  padding: 10px;
+  font-size: 1.2rem;
 }

@@ -1,25 +1,20 @@
-function isPalindrome(word){
+// ESERCIZIO / GIOCO 1: PARI dispari
+// rendo cliccabili le img e gli span
+var lis = document.getElementsByTagName("li");
+for (var i=0;i<lis.length;i++){
+  var li = lis[i];
+  li.addEventListener("click", function(){
 
-  var wordLng = word.length;
+    var radioChecked = this.children[1];
 
-  var resFalse = "la parola non è palindroma";
-  var resTrue = "la parola è palindroma";
-
-  for(var i= 0; i<wordLng;i++){
-    if(word[i] !== word[wordLng-(i+1)]){
-      // console.log("nonpal");
-      return resFalse;
+    if(radioChecked.checked){
+      radioChecked.checked = false;
+    } else {
+      radioChecked.checked=true;
     }
-  }
 
-  return resTrue;
-
+  })
 }
-// isPalindrome, IO TI INVOCO !!!!
-// var wordRnd = "ANNA";
-// isPalindrome(wordRnd);
-// console.log(isPalindrome(wordRnd));
-
 
 function getSum (value1,value2){
   return value1 + value2;
@@ -30,6 +25,14 @@ function getRnd (min,max){
   var maxRnd = max - minRnd + 1;
   var numRnd = Math.floor(Math.random()*maxRnd)+minRnd;
   return numRnd;
+}
+
+function opponentChoice(value){
+  if(value == "pari"){
+    return "dispari";
+  } else if (value == "dispari"){
+    return "pari";
+  }
 }
 
 function winnerIs (numero){
@@ -45,6 +48,7 @@ play.addEventListener("click", function(){
 
   var myCaptains = document.getElementsByClassName("scelta-utente");
 
+
   for (var i=0;i<myCaptains.length;i++){
     var myCaptain = myCaptains[i];
 
@@ -55,54 +59,98 @@ play.addEventListener("click", function(){
     }
   }
 
-  console.log("NUM UTENTE ", userNumber);
+  if(userNumber === undefined){
+    alert("Seleziona un capitano");
+  } else {
 
-  var cpuNumber = getRnd(1,5);
-  console.log("NUMERO CPU " , cpuNumber);
+    console.log("NUM UTENTE ", userNumber);
 
-  var sum = getSum (cpuNumber , userNumber);
-  console.log("SOMMA " , sum);
+    var cpuNumber = getRnd(1,5);
+    console.log("NUMERO CPU " , cpuNumber);
 
-  var winner = winnerIs(sum);
-  console.log("VINCE ",winner);
+    var sum = getSum (cpuNumber , userNumber);
+    console.log("SOMMA " , sum);
 
-  var myChoices = document.getElementsByClassName("pari-dispari");
-  for(var i=0;i<myChoices.length;i++){
-    var myChoice = myChoices[i];
-    var isChoiceChecked = myChoice.checked;
-    if (isChoiceChecked){
-      var oddPairUser = myChoice.dataset.value;
+    var winner = winnerIs(sum);
+    console.log("VINCE ",winner);
+
+    var myChoices = document.getElementsByClassName("pari-dispari");
+    for(var i=0;i<myChoices.length;i++){
+      var myChoice = myChoices[i];
+      var isChoiceChecked = myChoice.checked;
+      if (isChoiceChecked){
+        var oddPairUser = myChoice.dataset.value;
+      }
     }
+
+    console.log("la scelta utente è ",oddPairUser);
+
+
+    var message = document.getElementById("final-result");
+    var resultCaptain = document.getElementById("user-choice");
+    var resultCpu = document.getElementById("cpu-choice");
+
+
+    if(winner == oddPairUser) {
+      message.innerHTML = "TOTALE " + sum + "<br>";
+      message.innerHTML += "VINCE " + winner.toUpperCase();
+      resultCaptain.style.backgroundColor = "green";
+      resultCaptain.innerHTML = "<strong>" + userNumber + "</strong>";
+      resultCpu.style.backgroundColor = "red";
+      resultCpu.innerHTML = "<strong>" + cpuNumber + "</strong>";
+      console.log( "VINCE UTENTE !!!!");
+
+    } else if(winner == opponentChoice(oddPairUser)){
+      message.innerHTML = "TOTALE " + sum + "<br>";
+      message.innerHTML += "VINCE " + winner.toUpperCase();
+      resultCaptain.style.backgroundColor = "red";
+      resultCaptain.innerHTML = "<strong>" + userNumber + "</strong>";
+      resultCpu.style.backgroundColor = "green";
+      resultCpu.innerHTML = "<strong>" + cpuNumber + "</strong>";
+      console.log( "VINCE CPU !!!!");
+    } else {
+      alert ("seleziona Pari o Dispari");
+    }
+
   }
 
-  console.log("la scelta utente è ",oddPairUser);
+})
 
 
-  var message = document.getElementById("final-result");
+// ESERCIZIO / GIOCO 2 : PALINDROMO
+function isPalindrome(word){
+  var wordLower = word.toLowerCase();
+  var wordLng = wordLower.length;
+  for(var i= 0; i<wordLng;i++){
+    if(wordLower[i] !== wordLower[wordLng-(i+1)]){
+      return false;
+    }
+  }
+  return true;
+}
 
-  if(winner == oddPairUser) {
-    console.log( "VINCE UTENTE !!!!");
-    message.innerHTML = "VINCE UTENTE";
+var checkWord = document.getElementById("palindromo");
+var playPalindrome = document.getElementById("analyze-word");
+var resultPalindrome = document.getElementById("palindromo-result");
+
+playPalindrome.addEventListener("click", function(){
+
+  if(checkWord.value.length < 1){
+    alert("inserisci una parola");
   } else {
-    console.log( "VINCE CPU !!!!");
-    message.innerHTML = "VINCE CPU";
+    if (isPalindrome(checkWord.value)){
+      resultPalindrome.innerHTML ="LA PAROLA " + checkWord.value + " E' PALINDROMA"
+    } else {
+      resultPalindrome.innerHTML ="LA PAROLA " + checkWord.value + " NON E' PALINDROMA"
+    }
+
   }
 
 })
 
 
 
-// FUNZIONE , IO TI INVOCO !!!!!
-// var oddPairUser = prompt("pari o dispari").toLowerCase();
-// var user = parseInt(prompt("numero da 1 a 5"));
-// var rnd = getRnd(1,5);
-// var sum = sum(user,rnd);
-// console.log("Scelta utente:",oddPairUser,"Num utente:",user,"Num Cpu:" ,rnd,"Somma Tot:", sum);
-//
-// var winner = winnerIs(sum);
-//
-// if(winner == oddPairUser) {
-//   console.log( "VINCE UTENTE !!!!");
-// } else {
-//   console.log( "VINCE CPU !!!!");
-// }
+// isPalindrome, IO TI INVOCO !!!!
+// var wordRnd = "ANNA";
+// isPalindrome(wordRnd);
+// console.log(isPalindrome(wordRnd));
