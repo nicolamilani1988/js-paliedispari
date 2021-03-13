@@ -93,7 +93,8 @@ play.addEventListener("click", function(){
 
     if(winner == oddPairUser) {
       message.innerHTML = "TOTALE " + sum + "<br>";
-      message.innerHTML += "VINCE " + winner.toUpperCase();
+      message.innerHTML += "VINCE " + winner.toUpperCase() + "<br>";
+      message.innerHTML += "VINCE CAPITANO ";
       resultCaptain.style.backgroundColor = "green";
       resultCaptain.innerHTML = "<strong>" + userNumber + "</strong>";
       resultCpu.style.backgroundColor = "red";
@@ -102,7 +103,8 @@ play.addEventListener("click", function(){
 
     } else if(winner == opponentChoice(oddPairUser)){
       message.innerHTML = "TOTALE " + sum + "<br>";
-      message.innerHTML += "VINCE " + winner.toUpperCase();
+      message.innerHTML += "VINCE " + winner.toUpperCase() + "<br>";
+      message.innerHTML += "VINCE MACCHINA";
       resultCaptain.style.backgroundColor = "red";
       resultCaptain.innerHTML = "<strong>" + userNumber + "</strong>";
       resultCpu.style.backgroundColor = "green";
