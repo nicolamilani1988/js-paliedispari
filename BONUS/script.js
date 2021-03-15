@@ -91,27 +91,23 @@ play.addEventListener("click", function(){
     var resultCpu = document.getElementById("cpu-choice");
 
 
-    if(winner == oddPairUser) {
+    if(winner == oddPairUser || winner == opponentChoice(oddPairUser)){
       message.innerHTML = "TOTALE " + sum + "<br>";
       message.innerHTML += "VINCE " + winner.toUpperCase() + "<br>";
-      message.innerHTML += "VINCE CAPITANO ";
-      resultCaptain.style.backgroundColor = "green";
       resultCaptain.innerHTML = "<strong>" + userNumber + "</strong>";
-      resultCpu.style.backgroundColor = "red";
       resultCpu.innerHTML = "<strong>" + cpuNumber + "</strong>";
-      console.log( "VINCE UTENTE !!!!");
-
-    } else if(winner == opponentChoice(oddPairUser)){
-      message.innerHTML = "TOTALE " + sum + "<br>";
-      message.innerHTML += "VINCE " + winner.toUpperCase() + "<br>";
-      message.innerHTML += "VINCE MACCHINA";
-      resultCaptain.style.backgroundColor = "red";
-      resultCaptain.innerHTML = "<strong>" + userNumber + "</strong>";
-      resultCpu.style.backgroundColor = "green";
-      resultCpu.innerHTML = "<strong>" + cpuNumber + "</strong>";
-      console.log( "VINCE CPU !!!!");
     } else {
       alert ("seleziona Pari o Dispari");
+    }
+
+    if (winner == oddPairUser){
+      message.innerHTML += "VINCE CAPITANO ";
+      resultCaptain.style.backgroundColor = "green";
+      resultCpu.style.backgroundColor = "red";
+    } else if (winner == opponentChoice(oddPairUser)){
+      message.innerHTML += "VINCE MACCHINA";
+      resultCaptain.style.backgroundColor = "red";
+      resultCpu.style.backgroundColor = "green";
     }
 
   }
